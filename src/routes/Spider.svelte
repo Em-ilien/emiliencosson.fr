@@ -297,12 +297,15 @@
 	});
 </script>
 
+<svelte:head>
+	<script src="https://unpkg.co/gsap@3/dist/gsap.min.js" defer></script>
+</svelte:head>
+
 <!--
 	  Instagram: https://www.instagram.com/supahfunk/
 	  Twitter: https://twitter.com/supahfunk
 	  -->
 <canvas id="canvas">
-	<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
 </canvas>
 
