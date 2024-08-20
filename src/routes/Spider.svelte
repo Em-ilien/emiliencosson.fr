@@ -220,23 +220,6 @@
 		draw();
 
 		/*--------------------
-    GUI
-    --------------------*/
-		const gui = new dat.GUI();
-		const f = gui.addFolder('Settings');
-		f.add(opts, 'spiderOffsetX', -100, 100, 1);
-		f.add(opts, 'spiderOffsetY', -100, 100, 1);
-		f.add(opts, 'pawRadius', 0, 100, 1).onChange(walk);
-		f.add(opts, 'pawHeight', 0, 200, 1);
-		f.add(opts, 'pawRandomStep', 0, 1, 0.1);
-		f.add(opts, 'bodyHeight', 0, 100, 1);
-		f.add(opts, 'shadowY', 0, 1, 0.1);
-		f.add(opts, 'speed', 0, 0.3, 0.01);
-		f.add(opts, 'cellSize', 10, 200, 1).onChange(handleResize);
-		f.add(opts, 'stop');
-		f.close();
-
-		/*--------------------
     Mouse
     --------------------*/
 		const handleMouseMove = (e) => {
@@ -294,6 +277,20 @@
 		};
 
 		credits();
+
+		const onUnmount = () => {
+			const credits = document.querySelector('.credits');
+			if (credits) credits.remove();
+
+			window.removeEventListener('resize', handleResize);
+			window.removeEventListener('mousemove', handleMouseMove);
+			window.removeEventListener('touchstart', handleTouchMove);
+			window.removeEventListener('touchmove', handleTouchMove);
+			window.removeEventListener('mousedown', handleMouseDown);
+			window.removeEventListener('mouseup', handleMouseUp);
+		};
+
+		return () => onUnmount();
 	});
 </script>
 
@@ -302,12 +299,10 @@
 </svelte:head>
 
 <!--
-	  Instagram: https://www.instagram.com/supahfunk/
-	  Twitter: https://twitter.com/supahfunk
-	  -->
-<canvas id="canvas">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
-</canvas>
+	Instagram: https://www.instagram.com/supahfunk/
+	Twitter: https://twitter.com/supahfunk
+-->
+<canvas id="canvas" />
 
 <style>
 	canvas {
@@ -344,8 +339,5 @@
 		margin: -1px 0;
 		font-size: 14.1px;
 		font-weight: normal;
-	}
-	:global(.dg.ac) {
-		z-index: 50;
 	}
 </style>
