@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { gsap } from 'gsap';
 
 	onMount(() => {
 		/*--------------------
@@ -293,10 +294,6 @@
 		return () => onUnmount();
 	});
 </script>
-
-<svelte:head>
-	<script src="https://unpkg.co/gsap@3/dist/gsap.min.js" defer></script>
-</svelte:head>
 
 <!--
 	Instagram: https://www.instagram.com/supahfunk/
