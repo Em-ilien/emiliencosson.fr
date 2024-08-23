@@ -31,7 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"clock.svelte": "^2.0.3",
+		"clock.svelte": "^2.0.4",
 		"gsap": "^3.12.5",
 		"password-generator-svelte": "^1.1.1"
 	}
