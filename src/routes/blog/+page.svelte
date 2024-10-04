@@ -21,6 +21,10 @@
 				</p>
 			</a>
 		</div> -->
+
+		<div>
+			<span class="empty">Aucun article pour le moment.</span>
+		</div>
 	</main>
 </div>
 
@@ -150,5 +154,10 @@
 		.card-container {
 			grid-template-columns: repeat(3, 1fr);
 		}
+	}
+
+	.empty {
+		color: #666;
+		margin-top: 50px;
 	}
 </style>
