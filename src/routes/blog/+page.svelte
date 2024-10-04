@@ -11,7 +11,7 @@
 	<main>
 		<a href=".." class="btn-home">Accueil</a>
 
-		<div class="card-container">
+		<!-- <div class="card-container">
 			<a href="/blog/funcraft-mon-départ">
 				<h2>FunCraft - Mon départ</h2>
 				<p class="meta">Publié le 26 septembre 2024 | Par Em_i</p>
@@ -20,7 +20,7 @@
 					modération de FunCraft.
 				</p>
 			</a>
-		</div>
+		</div> -->
 	</main>
 </div>
 
