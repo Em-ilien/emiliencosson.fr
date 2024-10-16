@@ -33,6 +33,12 @@
 				</a>
 			</li>
 			<li>
+				<a href="https://spotify-player.em-ilien.fr">
+					<span class="service-title">Spotify Player</span>
+					<span class="service-description">Commander votre tacklist sur Spotify</span>
+				</a>
+			</li>
+			<li>
 				<a href="clock">
 					<span class="service-title">Clock</span>
 					<span class="service-description">Lire l'heure</span>
