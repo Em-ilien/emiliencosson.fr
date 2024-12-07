@@ -1,5 +1,30 @@
 <script>
 	import Spider from './Spider.svelte';
+
+	const projects = [
+		{
+			href: 'https://geocartie.fr',
+			title: 'Géocartie',
+			description: 'Apprendre et découvrir les départements français',
+			target: '_blank'
+		},
+		{
+			href: 'psw-g',
+			title: 'PasswordGenerator',
+			description: 'Générer un mot de passe'
+		},
+		{
+			href: 'https://spotify-player.em-ilien.fr',
+			title: 'Spotify Player',
+			description: 'Commander votre tacklist sur Spotify',
+			target: '_blank'
+		},
+		{
+			href: 'clock',
+			title: 'Clock',
+			description: "Lire l'heure"
+		}
+	];
 </script>
 
 <svelte:head>
@@ -9,41 +34,32 @@
 
 <div class="home-ctn">
 	<div class="infos">
-		<div class="names">
-			<h1><b>Em_i</b><span>lien</span></h1>
-			<h2>Emilien Cosson</h2>
-		</div>
+		<header>
+			<div class="left">
+				<img src="emilien.png" alt="Emilien" width="100" />
+				<div class="names">
+					<h1>Emilien Cosson</h1>
+					<h2>Em_ilien</h2>
+				</div>
+			</div>
+			<nav>
+				<a href="#projects">Projets</a>
+				<a href="/blog">Blog</a>
+				<a href="https://notes.em-ilien.fr" target="_blank" rel="follow">Notes</a>
+				<a href="https://notes.em-ilien.fr/contact" target="_blank" rel="follow">Contact</a>
+				<a href="#about">À propos</a>
+			</nav>
+		</header>
+		<h3>Projets</h3>
 		<ul>
-			<li>
-				<a href="https://geocartie.fr" target="_blank">
-					<span class="service-title">Géocartie</span>
-					<span class="service-description">Apprendre et découvrir les départements français</span>
-				</a>
-			</li>
-			<li>
-				<a href="blog">
-					<span class="service-title">Blog</span>
-					<span class="service-description">Lire les articles</span>
-				</a>
-			</li>
-			<li>
-				<a href="psw-g">
-					<span class="service-title">PasswordGenerator</span>
-					<span class="service-description">Générer un mot de passe</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://spotify-player.em-ilien.fr">
-					<span class="service-title">Spotify Player</span>
-					<span class="service-description">Commander votre tacklist sur Spotify</span>
-				</a>
-			</li>
-			<li>
-				<a href="clock">
-					<span class="service-title">Clock</span>
-					<span class="service-description">Lire l'heure</span>
-				</a>
-			</li>
+			{#each projects as { href, title, description, target }}
+				<li>
+					<a {href} {target}>
+						<span>{title}</span>
+						<span>{description}</span>
+					</a>
+				</li>
+			{/each}
 		</ul>
 	</div>
 
@@ -51,9 +67,11 @@
 </div>
 
 <style>
+	:global(body) {
+		background-color: #f7f9fc;
+	}
 	.home-ctn {
 		height: 100vh;
-		background-color: #f7f9fc;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -67,24 +85,36 @@
 		margin: 6em;
 		text-align: center;
 	}
-	.infos .names {
+
+	.infos header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1em;
+		margin-top: 3em;
+		flex-wrap: wrap-reverse;
+		gap: 3em 0;
+	}
+
+	.infos header .left {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1em;
+	}
+
+	.infos header .names {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 0;
-		margin-top: 3em;
 	}
+
 	.infos .names > * {
 		margin: 0;
 	}
-	.infos h1 {
-		font-size: 4rem;
-		color: #333;
-	}
-	.infos h1 b {
-		font-weight: 600;
-	}
-	.infos h1 span {
+	.infos h2 {
 		font-style: italic;
 		color: #fff;
 		letter-spacing: 16px;
@@ -93,14 +123,42 @@
 			0 3px #eee,
 			3px 0 #eee,
 			0 -3px #eee;
-		font-size: 4rem;
+		font-size: 3rem;
 		margin-left: 16px;
 	}
-	.infos h2 {
-		color: #bbb;
+
+	.infos h1 {
+		color: #666;
 		font-size: 2em;
 		font-weight: 400;
 		line-height: 1.5em;
+	}
+
+	.infos header nav {
+		z-index: 30;
+		display: flex;
+		flex-wrap: nowrap;
+	}
+
+	.infos nav a {
+		color: #1e88e5;
+		padding: 0.5em 1em;
+		text-decoration: none;
+		width: max-content;
+	}
+	.infos nav a:hover {
+		text-decoration: underline;
+	}
+	.infos nav a:first-child {
+		margin-left: -1em;
+	}
+
+	.infos h3 {
+		font-size: 1.7em;
+		color: #555;
+		font-weight: 400;
+		margin-top: 2em;
+		text-align: left;
 	}
 
 	.infos ul {
@@ -116,7 +174,6 @@
 	}
 	.infos ul li a {
 		text-decoration: none;
-		font-size: 1.25em;
 		display: block;
 		padding: 0.5em;
 		border-radius: 0.25em;
@@ -125,11 +182,10 @@
 		width: fit-content;
 		border-color: rgba(0, 102, 204, 0.26);
 		max-width: calc(100% - 1em);
-		background: #ffffff50;
 
 		text-decoration: none;
 		color: #1e88e5;
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		display: inline-block;
 		padding: 15px 25px;
 		border-radius: 10px;
@@ -155,7 +211,7 @@
 	}
 	.infos ul li a,
 	.infos ul li a:visited {
-		color: rgba(0, 102, 204);
+		color: #0066cc;
 	}
 
 	.infos ul li a::before {
