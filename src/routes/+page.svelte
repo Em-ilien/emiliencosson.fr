@@ -45,7 +45,6 @@
 			<nav>
 				<a href="#projects">Projets</a>
 				<a href="/blog">Blog</a>
-				<a href="https://notes.em-ilien.fr" target="_blank" rel="follow">Notes</a>
 				<a href="https://notes.em-ilien.fr/contact" target="_blank" rel="follow">Contact</a>
 				<a href="#about">À propos</a>
 			</nav>
@@ -142,7 +141,7 @@
 
 	.infos nav a {
 		color: #1e88e5;
-		padding: 0.5em 1em;
+		padding: 1em;
 		text-decoration: none;
 		width: max-content;
 	}
