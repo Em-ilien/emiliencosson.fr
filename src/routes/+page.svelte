@@ -58,7 +58,7 @@
 					{/each}
 				</nav>
 			</header>
-			<h3>Projets</h3>
+			<h3 id="projects">Projets</h3>
 			<ul class="projects">
 				{#each projects as { href, title, description, target }}
 					<li>
