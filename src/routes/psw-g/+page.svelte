@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Link from '$lib/components/project/Link.svelte';
 	import { PasswordGeneratorSvelte } from 'password-generator-svelte';
 </script>
 
@@ -13,7 +14,7 @@
 	</header>
 
 	<main>
-		<a href=".." class="btn-home">Accueil</a>
+		<Link href=".." text="Accueil" />
 		<PasswordGeneratorSvelte />
 	</main>
 

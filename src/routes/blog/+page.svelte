@@ -1,3 +1,7 @@
+<script>
+	import Link from '$lib/components/project/Link.svelte';
+</script>
+
 <svelte:head>
 	<title>Em-ilien.fr - Blog</title>
 	<meta name="description" content="Blog d'Emilien Cosson" />
@@ -9,7 +13,7 @@
 	</header>
 
 	<main>
-		<a href=".." class="btn-home">Accueil</a>
+		<Link href=".." text="Accueil" />
 
 		<!-- <div class="card-container">
 			<a href="/blog/funcraft-mon-départ">

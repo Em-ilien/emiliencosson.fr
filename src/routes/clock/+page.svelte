@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Link from '$lib/components/project/Link.svelte';
 	import { Clock } from 'clock.svelte';
 </script>
 
@@ -13,7 +14,7 @@
 	</header>
 
 	<main>
-		<a href=".." class="btn-home">Accueil</a>
+		<Link href=".." text="Accueil" />
 		<Clock />
 	</main>
 </div>

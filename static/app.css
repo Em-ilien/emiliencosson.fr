@@ -1,11 +1,20 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    font-family: "Literata", serif;
-    font-optical-sizing: auto;
+	height: 100vh;
+	font-family: 'Literata', serif;
+	font-optical-sizing: auto;
+}
+
+a {
+	color: #1e88e5;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }

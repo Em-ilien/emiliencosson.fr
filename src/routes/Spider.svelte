@@ -337,4 +337,14 @@
 		font-size: 14.1px;
 		font-weight: normal;
 	}
+
+	@media (max-width: 800px) {
+		canvas {
+			display: none;
+		}
+
+		:global(.credits) {
+			display: none;
+		}
+	}
 </style>

@@ -1,5 +1,14 @@
 <script>
+	import Link from '$lib/components/project/Link.svelte';
 	import Spider from './Spider.svelte';
+
+	const navLinks = [
+		{ href: '#projects', title: 'Projets' },
+		{ href: '/blog', title: 'Blog' },
+		{ href: '#about', title: 'À propos' },
+		{ href: 'https://github.com/Em-ilien/', title: 'GitHub', target: '_blank' },
+		{ href: 'https://notes.em-ilien.fr/contact', title: 'Contact', target: '_blank' }
+	];
 
 	const projects = [
 		{
@@ -9,15 +18,15 @@
 			target: '_blank'
 		},
 		{
-			href: 'psw-g',
-			title: 'PasswordGenerator',
-			description: 'Générer un mot de passe'
-		},
-		{
 			href: 'https://spotify-player.em-ilien.fr',
 			title: 'Spotify Player',
 			description: 'Commander votre tracklist sur Spotify',
 			target: '_blank'
+		},
+		{
+			href: 'psw-g',
+			title: 'PasswordGenerator',
+			description: 'Générer un mot de passe'
 		},
 		{
 			href: 'clock',
@@ -44,10 +53,9 @@
 					</div>
 				</div>
 				<nav>
-					<a href="#projects">Projets</a>
-					<a href="/blog">Blog</a>
-					<a href="#about">À propos</a>
-					<a href="https://notes.em-ilien.fr/contact" target="_blank" rel="follow">Contact</a>
+					{#each navLinks as { href, title }}
+						<Link {href} text={title} --margin-left="0" />
+					{/each}
 				</nav>
 			</header>
 			<h3>Projets</h3>
@@ -62,25 +70,35 @@
 				{/each}
 			</ul>
 			<h3 id="about">who am i?</h3>
-			<p>
-				Je m'appelle <strong>Emilien Cosson</strong>, et c'est en grandissant dans les Alpes mancelles que je me passionné pour <strong>le droit et le développement web</strong>.
-			</p>
-			<p>
-				J'ai étudié <strong>l'informatique à l'IUT de Laval</strong>.
-			</p>
-			<p>
-			<p>
-				Je <strong>développeur d'applications web en freelance</strong>.
-			</p>
-			<p>
-				Géocartie est un projet qui me tient à coeur. Il permet d'apprendre et découvrir les départements français.
-			</p>
-			<p>
-				J'aime apprendre et découvrir de nouvelles technologies. J'aime le plus travailler avec <a href="https://dev.java/">Java</a> et <a href="https://svelte.dev/">Svelte</a>.
-			</p>
-			<p>
-				J'aime la précision, l'honnêteté, l'information, le calme, la carté, la qualité, la rapidité. Dans cet ordre.
-			</p>
+			<div class="p-ctn">
+				<p>
+					Je m'appelle <strong>Emilien Cosson</strong>, et c'est en grandissant dans les Alpes
+					mancelles que je me passionné pour <strong>le droit et le développement web</strong>.
+				</p>
+				<p>
+					J'ai étudié l'<strong>informatique</strong> à <strong>l'IUT de Laval</strong>.
+				</p>
+				<p></p>
+				<p>
+					Je suis <strong>développeur d'applications web en freelance</strong>.
+				</p>
+				<p>
+					J'aime aussi concevoir des projets personnels utiles et ludiques. <a
+						href="https://geocartie.fr">Géocartie</a
+					> est un projet qui me tient à coeur. C'est une carte interactive pour apprendre et découvrir
+					les départements français.
+				</p>
+				<p>
+					J'aime apprendre et découvrir de nouvelles technologies. J'aime le plus travailler avec <a
+						href="https://dev.java/">Java</a
+					>
+					et <a href="https://svelte.dev/">Svelte</a>.
+				</p>
+				<p>
+					J'aime la précision, l'honnêteté, l'information, le calme, la carté, la qualité, la
+					rapidité. Dans cet ordre !
+				</p>
+			</div>
 		</div>
 	</div>
 
@@ -103,7 +121,8 @@
 	}
 
 	.infos-ctn {
-		padding: 3em 6em;
+		padding: 3em 6vw 6em 6vw;
+		z-index: 30;
 	}
 
 	.infos header {
@@ -133,22 +152,21 @@
 		margin: 0;
 	}
 	.infos h2 {
-		font-family: "Inter", sans-serif;
-  		font-optical-sizing: auto;
+		font-family: 'Inter', sans-serif;
+		font-optical-sizing: auto;
 		font-style: italic;
 		color: #fff;
 		letter-spacing: 16px;
 		text-shadow:
-			-3px 0 #eee,
-			0 3px #eee,
-			3px 0 #eee,
-			0 -3px #eee;
+			-3px 0 #dfdfdf,
+			0 3px #dfdfdf,
+			3px 0 #dfdfdf,
+			0 -3px #dfdfdf;
 		font-size: 3rem;
 		margin-left: 16px;
 	}
 
 	.infos h1 {
-		  
 		color: #666;
 		font-size: 2em;
 		font-weight: 400;
@@ -156,21 +174,11 @@
 	}
 
 	.infos header nav {
-		z-index: 30;
 		display: flex;
 		flex-wrap: nowrap;
 	}
 
-	.infos nav a {
-		color: #1e88e5;
-		padding: 1em;
-		text-decoration: none;
-		width: max-content;
-	}
-	.infos nav a:hover {
-		text-decoration: underline;
-	}
-	.infos nav a:first-child {
+	.infos nav {
 		margin-left: -1em;
 	}
 
@@ -191,11 +199,8 @@
 		gap: 2.5em;
 
 		text-align: center;
-		font-family: "Inter", sans-serif;
-  		font-optical-sizing: auto;
-	}
-	.infos ul li {
-		z-index: 30;
+		font-family: 'Inter', sans-serif;
+		font-optical-sizing: auto;
 	}
 	.infos ul li a {
 		text-decoration: none;
@@ -228,14 +233,10 @@
 		gap: 0.325em;
 	}
 	.infos ul li a:hover {
-		border-color: rgba(0, 102, 204, 1);
+		border-color: #0066cc;
 		background-color: #e3f2fd;
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 		transform: translateY(-5px);
-	}
-	.infos ul li a,
-	.infos ul li a:visited {
-		color: #0066cc;
 	}
 
 	.infos ul li a::before {
@@ -280,9 +281,75 @@
 		margin-bottom: 0.75em;
 	}
 
+	.infos .p-ctn {
+		max-width: 800px;
+	}
+
 	.infos p {
 		color: #444;
-		line-height: 1.25em;
-		margin: 0.5em 0;
+		line-height: 1.5em;
+		margin: 0.75em 0;
+	}
+
+	@media (max-width: 800px) {
+		.infos header nav {
+			flex-wrap: wrap;
+		}
+
+		.infos-ctn {
+			padding: 2em;
+		}
+
+		.infos header .left {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.infos ul.projects {
+			flex-direction: column;
+			width: 100%;
+			gap: 0;
+
+			font-family: inherit;
+			text-align: left;
+			font-size: 1em;
+		}
+
+		.infos ul.projects a {
+			width: 100%;
+			max-width: 100%;
+			border: none;
+			background: none;
+			box-shadow: none;
+			margin: 0;
+			border-radius: 0;
+			height: auto;
+			padding: 0.5em 0;
+			font-size: 1.1em;
+			border: none;
+		}
+
+		.infos ul.projects a,
+		.infos ul.projects a:hover {
+			border-top: 1px solid #ddd;
+		}
+
+		.infos ul.projects a:last-child,
+		.infos ul.projects a:last-child:hover {
+			border-bottom: 1px solid #ddd;
+		}
+
+		.infos ul.projects a::before {
+			content: none;
+		}
+
+		.infos ul.projects a:hover {
+			transform: none;
+			background: none;
+			box-shadow: none;
+			background: none;
+			box-shadow: none;
+			transform: none;
+		}
 	}
 </style>
