@@ -16,7 +16,7 @@
 		{
 			href: 'https://spotify-player.em-ilien.fr',
 			title: 'Spotify Player',
-			description: 'Commander votre tacklist sur Spotify',
+			description: 'Commander votre tracklist sur Spotify',
 			target: '_blank'
 		},
 		{
