@@ -34,32 +34,54 @@
 
 <div class="home-ctn">
 	<div class="infos">
-		<header>
-			<div class="left">
-				<img src="emilien.png" alt="Emilien" width="100" />
-				<div class="names">
-					<h1>Emilien Cosson</h1>
-					<h2>Em_ilien</h2>
+		<div class="infos-ctn">
+			<header>
+				<div class="left">
+					<img src="emilien.png" alt="Emilien" width="100" />
+					<div class="names">
+						<h1>Emilien Cosson</h1>
+						<h2>Em_ilien</h2>
+					</div>
 				</div>
-			</div>
-			<nav>
-				<a href="#projects">Projets</a>
-				<a href="/blog">Blog</a>
-				<a href="https://notes.em-ilien.fr/contact" target="_blank" rel="follow">Contact</a>
-				<a href="#about">À propos</a>
-			</nav>
-		</header>
-		<h3>Projets</h3>
-		<ul>
-			{#each projects as { href, title, description, target }}
-				<li>
-					<a {href} {target}>
-						<span>{title}</span>
-						<span>{description}</span>
-					</a>
-				</li>
-			{/each}
-		</ul>
+				<nav>
+					<a href="#projects">Projets</a>
+					<a href="/blog">Blog</a>
+					<a href="#about">À propos</a>
+					<a href="https://notes.em-ilien.fr/contact" target="_blank" rel="follow">Contact</a>
+				</nav>
+			</header>
+			<h3>Projets</h3>
+			<ul class="projects">
+				{#each projects as { href, title, description, target }}
+					<li>
+						<a {href} {target}>
+							<span>{title}</span>
+							<span>{description}</span>
+						</a>
+					</li>
+				{/each}
+			</ul>
+			<h3 id="about">who am i?</h3>
+			<p>
+				Je m'appelle <strong>Emilien Cosson</strong>, et c'est en grandissant dans les Alpes mancelles que je me passionné pour <strong>le droit et le développement web</strong>.
+			</p>
+			<p>
+				J'ai étudié <strong>l'informatique à l'IUT de Laval</strong>.
+			</p>
+			<p>
+			<p>
+				Je <strong>développeur d'applications web en freelance</strong>.
+			</p>
+			<p>
+				Géocartie est un projet qui me tient à coeur. Il permet d'apprendre et découvrir les départements français.
+			</p>
+			<p>
+				J'aime apprendre et découvrir de nouvelles technologies. J'aime le plus travailler avec <a href="https://dev.java/">Java</a> et <a href="https://svelte.dev/">Svelte</a>.
+			</p>
+			<p>
+				J'aime la précision, l'honnêteté, l'information, le calme, la carté, la qualité, la rapidité. Dans cet ordre.
+			</p>
+		</div>
 	</div>
 
 	<Spider />
@@ -72,17 +94,16 @@
 	.home-ctn {
 		height: 100vh;
 		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 
 	.infos {
-		height: 100%;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
-		margin: 6em;
-		text-align: center;
+		height: fit-content;
+	}
+
+	.infos-ctn {
+		padding: 3em 6em;
 	}
 
 	.infos header {
@@ -90,8 +111,6 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1em;
-		margin-top: 3em;
 		flex-wrap: wrap-reverse;
 		gap: 3em 0;
 	}
@@ -114,6 +133,8 @@
 		margin: 0;
 	}
 	.infos h2 {
+		font-family: "Inter", sans-serif;
+  		font-optical-sizing: auto;
 		font-style: italic;
 		color: #fff;
 		letter-spacing: 16px;
@@ -127,6 +148,7 @@
 	}
 
 	.infos h1 {
+		  
 		color: #666;
 		font-size: 2em;
 		font-weight: 400;
@@ -160,13 +182,17 @@
 		text-align: left;
 	}
 
-	.infos ul {
+	.infos ul.projects {
 		list-style: none;
 		width: fit-content;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 0em 2.5em;
+		gap: 2.5em;
+
+		text-align: center;
+		font-family: "Inter", sans-serif;
+  		font-optical-sizing: auto;
 	}
 	.infos ul li {
 		z-index: 30;
@@ -177,7 +203,6 @@
 		padding: 0.5em;
 		border-radius: 0.25em;
 		border: 1px solid;
-		margin: 1em 0;
 		width: fit-content;
 		border-color: rgba(0, 102, 204, 0.26);
 		max-width: calc(100% - 1em);
@@ -249,5 +274,15 @@
 
 	.infos ul li a:hover span {
 		color: #1565c0;
+	}
+
+	.infos h3 {
+		margin-bottom: 0.75em;
+	}
+
+	.infos p {
+		color: #444;
+		line-height: 1.25em;
+		margin: 0.5em 0;
 	}
 </style>
