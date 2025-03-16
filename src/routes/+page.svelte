@@ -1,5 +1,5 @@
 <script>
-	import ProjectTable from './ProjectsTable.svelte';
+	import ProjectsTable from './ProjectsTable.svelte';
 
 	import Link from '$lib/components/project/Link.svelte';
 
