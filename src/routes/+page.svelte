@@ -1,6 +1,5 @@
 <script>
 	import Link from '$lib/components/project/Link.svelte';
-	import Spider from './Spider.svelte';
 
 	const navLinks = [
 		{ href: '#projects', title: 'Projets' },
@@ -95,14 +94,11 @@
 					et <a href="https://svelte.dev/">Svelte</a>.
 				</p>
 				<p>
-					J'aime la précision, l'honnêteté, l'information, le calme, la carté, la qualité, la
-					rapidité. Dans cet ordre !
+					J'accorde de la valeur à la précision, l'honnêteté, la clarté, la qualité, l'information. Dans cet ordre !
 				</p>
 			</div>
 		</div>
 	</div>
-
-	<Spider />
 </div>
 
 <style>
