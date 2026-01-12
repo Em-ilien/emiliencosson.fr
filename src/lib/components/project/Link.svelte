@@ -1,9 +1,12 @@
 <script>
 	export let href = '';
 	export let text = '';
+	export let target = undefined;
+
+	const rel = target === '_blank' ? 'noopener' : undefined;
 </script>
 
-<a {href}>{text}</a>
+<a {href} {target} {rel}>{text}</a>
 
 <style>
 	a {

@@ -1,5 +1,9 @@
-<script>
-	import Link from '$lib/components/project/Link.svelte';
+<script lang="ts">
+	import PageLayout from '$lib/components/PageLayout.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+	$: posts = data.posts ?? [];
 </script>
 
 <svelte:head>
@@ -7,76 +11,28 @@
 	<meta name="description" content="Blog d'Emilien Cosson" />
 </svelte:head>
 
-<div class="blog-ctn">
-	<header>
-		<h1>Mon Blog - em-ilien.fr</h1>
-	</header>
+<PageLayout>
+	<h1>Mon Blog</h1>
 
-	<main>
-		<Link href=".." text="Accueil" />
-
-		<!-- <div class="card-container">
-			<a href="/blog/funcraft-mon-départ">
-				<h2>FunCraft - Mon départ</h2>
-				<p class="meta">Publié le 26 septembre 2024 | Par Em_i</p>
-				<p class="excerpt">
-					Après deux ans et dix mois, je décide de laisser le soin à d'autres de participer à la
-					modération de FunCraft.
-				</p>
-			</a>
-		</div> -->
-
-		<div>
-			<span class="empty">Aucun article pour le moment.</span>
-		</div>
-	</main>
-</div>
+		{#if posts.length > 0}
+			<div class="card-container">
+				{#each posts as post}
+					<a href={post.path}>
+						<h2>{post.meta.title}</h2>
+						<p class="excerpt">{post.meta.description}</p>
+					</a>
+				{/each}
+			</div>
+		{:else}
+			<div>
+				<span class="empty">Aucun article pour le moment.</span>
+			</div>
+		{/if}
+</PageLayout>
 
 <style>
-	.blog-ctn {
-		height: 100vh;
-		background-color: #f7f9fc;
-		color: #333;
-	}
-
-	header {
-		background-color: #343a40;
-		color: white;
-		padding: 30px;
-		text-align: center;
-		clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-	}
-
-	header h1 {
-		margin: 0;
-		font-size: 2.5rem;
-		letter-spacing: 2px;
-	}
-
-	main {
-		max-width: 1100px;
-		margin: 40px auto;
-		padding: 0 20px;
-	}
-
-	.btn-home {
-		display: inline-block;
-		margin-bottom: 30px;
-		padding: 12px 25px;
-		background-color: #1e88e5;
-		color: white;
-		text-decoration: none;
-		border-radius: 25px;
-		font-size: 1rem;
-		box-shadow: 0 4px 8px rgba(30, 136, 229, 0.3);
-		transition:
-			background-color 0.3s ease,
-			box-shadow 0.3s ease;
-	}
-
-	.btn-home:hover {
-		background-color: #1565c0;
-		box-shadow: 0 6px 12px rgba(21, 101, 192, 0.4);
+	:global(h1) {
+		margin-bottom: 2em;
 	}
 
 	.card-container {
